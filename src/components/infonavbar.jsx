@@ -8,7 +8,7 @@ export default function InfoNavbar() {
         <div>
             <header className="bg-primary text-white"> 
                 <div className="container">
-                    <nav className="flex justify-between p-[13px]">
+                    <nav className="flex justify-between p-4">
                         <div>
                             <ul className="list-none md:flex gap-10 ">
                                 <li> <a className="items-center" href="mailto: khadkasameer23@gmail.com"><FiMail className="inline"/> khadkasameer23@gmail.com </a></li>

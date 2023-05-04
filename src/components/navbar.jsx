@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function NavBar() {
     return (
         <div className="container">
-            <header className="p-[22px]">
+            <header className="p-4">
                 <nav className="md:flex justify-between items-center">
                     <div className="text-center">
                         <span className="text-4xl">Hekto</span>
