@@ -14,7 +14,10 @@ module.exports = {
       },
       colors:{
         primary: "#7E33E0",
-        secondary: "#FB2E86"
+        secondary: "#FB2E86",
+        circle: "#ECD2FA",
+        "primary-shade": "#EEEFFB",
+        "blue-gradient": "#1389FF",
       }
     },
   },

@@ -9,17 +9,17 @@ export default function NavBar() {
                     <div className="text-center">
                         <span className="text-4xl">Hekto</span>
                     </div>
-                    <div className="list-none text-center pl-4 pr-4 md:flex gap-5">
-                        <li><Link href="/">Home</Link></li>
-                        <li><Link href="/pages">Pages</Link></li>
-                        <li><Link href="/products">Products</Link></li>
-                        <li><Link href="/blog">Blog</Link></li>
-                        <li><Link href="/shop">Shop</Link></li>
-                        <li><Link href="/contact">Contact</Link></li>                                   
-                    </div>
+                    <ul className="list-none text-center pl-4 pr-4 md:flex gap-5">
+                        <li className="hover:text-secondary"><Link href="/">Home</Link></li>
+                        <li className="hover:text-secondary"><Link href="/pages">Pages</Link></li>
+                        <li className="hover:text-secondary"><Link href="/products">Products</Link></li>
+                        <li className="hover:text-secondary"><Link href="/blog">Blog</Link></li>
+                        <li className="hover:text-secondary"><Link href="/shop">Shop</Link></li>
+                        <li className="hover:text-secondary"><Link href="/contact">Contact</Link></li>                                   
+                    </ul>
                     <div className="flex">
                         <input type="search" name="search" className="border w-full justify-center" id="" />
-                        <div className=" bg-secondary text-white inline p-[10px]">
+                        <div className=" bg-secondary text-white inline p-[10px]  hover:bg-primary ">
                         <FiSearch className="inline"/>
                         </div>
                     </div>                    
