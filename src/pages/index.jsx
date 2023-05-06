@@ -17,15 +17,15 @@ export default function Home() {
           <div className="container">
             <div className="lg:flex justify-between items-center">
               <div className="p-4 m-4 ">
-                <p className="text-secondary mb-2">Best Furniture For Your Castle....</p>
-                <h1 className="text-4xl mb-2">New Furniture Collection <br /> Trends in 2023</h1>
-                <p className="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing <br /> in phasellus non in justo.</p>
+                <p className="text-secondary mb-4 text-lg">Best Furniture For Your Castle....</p>
+                <h1 className="text-6xl mb-4">New Furniture Collection <br /> Trends in 2023</h1>
+                <p className="mb-4 text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing <br /> in phasellus non in justo.</p>
                 <button className="bg-secondary text-white w-[163px] h-[50px] hover:bg-primary">Shop Now</button>
               </div>
               <div className="flex p-4 m-4 justify-center items-center ">                        
-                <div className="h-[300px] w-[300px] bg-circle  rounded-[50%] "></div>
-                <div className="h-[300px] w-[300px] bg-circle rounded-[50%] ml-[-280px] mt-[-30px] "></div>
-                <Image className='ml-[-300px]' src={Shell} alt='shell' height={300} width={300}></Image>  
+                <div className="h-[300px] w-[300px] bg-circle  rounded-[50%] xl:h-[400px] xl:w-[400px]"></div>
+                <div className="h-[300px] w-[300px] bg-circle rounded-[50%] ml-[-280px] mt-[-30px] xl:h-[400px] xl:w-[400px] xl:mt-[-40px] xl:ml-[-380px]"></div>
+                <Image className='ml-[-300px] xl:ml-[-350px]' src={Shell} alt='shell ' height={300} width={300} ></Image>  
               </div>          
             </div>
           </div>
@@ -108,13 +108,13 @@ export default function Home() {
                       <li className='bg-primary-shade w-8 h-8 justify-center items-center p-2 rounded-full'><AiOutlineHeart className=' hover:text-secondary  h-4 w-4 text-blue-gradient'/></li>
                       <li className='bg-primary-shade w-8 h-8 justify-center items-center p-2 rounded-full'><AiOutlineZoomIn className='hover:text-secondary  h-4 w-4 text-blue-gradient'/></li>
                       </ul>                    
-                  </div>
+                </div>
               </div>
             </div>            
           </div>
         </div>
         {/* LETEST PRODUCTS */}
-        <div>
+        <div className='container'>
           <div>
             <div>
               <p className='text-center text-primary font-bold text-4xl m-4'>Leatest Products</p>
@@ -124,6 +124,94 @@ export default function Home() {
                 <li className='text-primary hover:text-secondary'>Featured</li>
                 <li className='text-primary hover:text-secondary'>Special</li>
               </ul>
+            </div>
+            {/* LEATEST PRODUCT ITEMS BOXS */}
+            <div className='mt-4 p-4 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3'>              
+                <div className=" border-2 hover:border-primary rounded-xl relative">
+                  <div className="h-[85%] justify-center items-center bg-primary-shade rounded-t-xl">
+                  <Image src={Wing} alt="product img" />
+                  </div>
+                  <ul className="flex justify-between  items-center  p-4">
+                      <li className="text-secondary text-2xl">Cantilever chair</li>
+                      <li className="text-[#151875]">$42.50</li>
+                  </ul>
+                  <ul className=' absolute top-3 left-2   gap-2'>
+                      <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full'><BsCart2 className=' hover:text-secondary  h-6 w-6 text-blue-gradient' /></li>
+                      <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full'><AiOutlineHeart className=' hover:text-secondary  h-6 w-6 text-blue-gradient'/></li>
+                      <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full'><AiOutlineZoomIn className='hover:text-secondary  h-6 w-6 text-blue-gradient'/></li>
+                      </ul>           
+                </div>
+                <div className=" border-2 hover:border-primary rounded-xl relative">
+                  <div className="h-[85%] justify-center items-center bg-primary-shade rounded-t-xl">
+                  <Image src={Wing} alt="product img" />
+                  </div>
+                  <ul className="flex justify-between items-center text-center p-4">
+                      <li className="text-secondary text-2xl">Cantilever chair</li>
+                      <li className="text-[#151875]">$42.50</li>
+                  </ul>
+                  <ul className=' absolute top-3 left-2   gap-2'>
+                      <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full'><BsCart2 className=' hover:text-secondary  h-6 w-6 text-blue-gradient' /></li>
+                      <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full'><AiOutlineHeart className=' hover:text-secondary  h-6 w-6 text-blue-gradient'/></li>
+                      <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full'><AiOutlineZoomIn className='hover:text-secondary  h-6 w-6 text-blue-gradient'/></li>
+                      </ul>           
+                </div>
+                <div className=" border-2 hover:border-primary rounded-xl relative">
+                  <div className="h-[85%] justify-center items-center bg-primary-shade rounded-t-xl">
+                  <Image src={Wing} alt="product img" />
+                  </div>
+                  <ul className="flex justify-between items-center text-center p-4">
+                      <li className="text-secondary text-2xl">Cantilever chair</li>
+                      <li className="text-[#151875]">$42.50</li>
+                  </ul>
+                  <ul className=' absolute top-3 left-2   gap-2'>
+                      <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full'><BsCart2 className=' hover:text-secondary  h-6 w-6 text-blue-gradient' /></li>
+                      <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full'><AiOutlineHeart className=' hover:text-secondary  h-6 w-6 text-blue-gradient'/></li>
+                      <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full'><AiOutlineZoomIn className='hover:text-secondary  h-6 w-6 text-blue-gradient'/></li>
+                      </ul>           
+                </div>
+                <div className=" border-2 hover:border-primary rounded-xl relative">
+                  <div className="h-[85%] justify-center items-center bg-primary-shade rounded-t-xl">
+                  <Image src={Wing} alt="product img" />
+                  </div>
+                  <ul className="flex justify-between items-center text-center p-4">
+                      <li className="text-secondary text-2xl">Cantilever chair</li>
+                      <li className="text-[#151875]">$42.50</li>
+                  </ul>
+                  <ul className=' absolute top-3 left-2   gap-2'>
+                      <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full'><BsCart2 className=' hover:text-secondary  h-6 w-6 text-blue-gradient' /></li>
+                      <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full'><AiOutlineHeart className=' hover:text-secondary  h-6 w-6 text-blue-gradient'/></li>
+                      <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full'><AiOutlineZoomIn className='hover:text-secondary  h-6 w-6 text-blue-gradient'/></li>
+                      </ul>           
+                </div>
+                <div className=" border-2 hover:border-primary rounded-xl relative">
+                  <div className="h-[85%] justify-center items-center bg-primary-shade rounded-t-xl">
+                  <Image src={Wing} alt="product img" />
+                  </div>
+                  <ul className="flex justify-between items-center text-center p-4">
+                      <li className="text-secondary text-2xl">Cantilever chair</li>
+                      <li className="text-[#151875]">$42.50</li>
+                  </ul>
+                  <ul className=' absolute top-3 left-2   gap-2'>
+                      <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full'><BsCart2 className=' hover:text-secondary  h-6 w-6 text-blue-gradient' /></li>
+                      <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full'><AiOutlineHeart className=' hover:text-secondary  h-6 w-6 text-blue-gradient'/></li>
+                      <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full'><AiOutlineZoomIn className='hover:text-secondary  h-6 w-6 text-blue-gradient'/></li>
+                      </ul>           
+                </div>
+                <div className=" border-2 hover:border-primary rounded-xl relative">
+                  <div className="h-[85%] justify-center items-center bg-primary-shade rounded-t-xl">
+                  <Image src={Wing} alt="product img" />
+                  </div>
+                  <ul className="flex justify-between items-center text-center p-4">
+                      <li className="text-secondary text-2xl">Cantilever chair</li>
+                      <li className="text-[#151875]">$42.50</li>
+                  </ul>
+                  <ul className=' absolute top-3 left-2   gap-2'>
+                      <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full'><BsCart2 className=' hover:text-secondary  h-6 w-6 text-blue-gradient' /></li>
+                      <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full'><AiOutlineHeart className=' hover:text-secondary  h-6 w-6 text-blue-gradient'/></li>
+                      <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full'><AiOutlineZoomIn className='hover:text-secondary  h-6 w-6 text-blue-gradient'/></li>
+                      </ul>           
+                </div>
+                
             </div>
           </div>
         </div>
