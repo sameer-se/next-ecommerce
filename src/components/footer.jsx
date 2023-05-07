@@ -9,7 +9,7 @@ export default function Footer() {
                         <div className="mb-4 ml-4 mr-4">
                             <p className="text-6xl mb-4">Hekto</p>
                             <input type="text"   className="h-10 mb-4"/>
-                            <button className="h-10 w-16 bg-secondary text-white ">Sign up</button>
+                            <button className="h-10 w-16 bg-secondary text-white  hover:bg-primary">Sign up</button>
                             <p className="text-[#8A8FB9]">Contact Info</p>
                             <p className="text-[#8A8FB9]">17 Princess Road, London, Greater London NW1 8JR, UK</p>
                         </div>

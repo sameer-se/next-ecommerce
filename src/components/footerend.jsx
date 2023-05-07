@@ -9,9 +9,9 @@ export default function FooterEnd() {
                         <div className='flex justify-around items-center p-4'>
                             <p className='text-[#9DA0AE]'>©Webecy - All Rights Reserved</p>
                             <div className='flex gap-8 items-center'>
-                                <FaFacebook className=' rounded-full h-6 w-6 text-[#151875]'/>
-                                <FaInstagramSquare className='rounded-full h-6 w-6 text-[#151875]'/>
-                                <FaTwitter className='rounded-full h-6 w-6 text-[#151875]'/>
+                                <FaFacebook className='  h-6 w-6 text-[#151875] hover:text-secondary'/>
+                                <FaInstagramSquare className=' h-6 w-6 text-[#151875] hover:text-secondary'/>
+                                <FaTwitter className=' h-6 w-6 text-[#151875] hover:text-secondary'/>
                             </div>
                         </div>
                     </div>
