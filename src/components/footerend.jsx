@@ -10,7 +10,7 @@ export default function FooterEnd() {
                             <p className='text-[#9DA0AE]'>©Webecy - All Rights Reserved</p>
                             <div className='flex gap-8 items-center'>
                                 <FaFacebook className='  h-6 w-6 text-[#151875] hover:text-secondary'/>
-                                <FaInstagramSquare className=' h-6 w-6 text-[#151875] hover:text-secondary'/>
+                                <FaInstagramSquare className='rounded-full h-6 w-6 text-[#151875] hover:text-secondary'/>
                                 <FaTwitter className=' h-6 w-6 text-[#151875] hover:text-secondary'/>
                             </div>
                         </div>
