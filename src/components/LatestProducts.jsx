@@ -1,5 +1,5 @@
 import React from 'react'
-import Wing from "@/assets/pngwing.png"
+import Noimg from "@/assets/noimg.jpeg"
 import Image from 'next/image'
 import { BsCart2 } from "react-icons/bs";
 import { AiOutlineHeart,AiOutlineZoomIn } from "react-icons/ai";
@@ -14,7 +14,14 @@ export default function LatestProducts({product}) {
     <div>
         <div className=" border-2 hover:border-primary rounded-xl relative">
             <div className="h-[85%]  bg-primary-shade rounded-t-xl">
-              <Image src={images[0]} alt="product img" className='w-full aspect-square object-fill rounded-t-xl'  height={200} width={200} />
+              {/* <Image src={images[0]}  alt="product img" className='w-full aspect-square object-fill rounded-t-xl'  height={200} width={200} /> */}
+              {
+                images.length == 0 
+                ?
+                <Image src={Noimg}  alt="product img" className='w-full aspect-square object-fill rounded-t-xl'  height={200} width={200} />
+                :
+                <Image src={images[0]}  alt="product img" className='w-full aspect-square object-fill rounded-t-xl'  height={200} width={200} />
+              }
             </div>
             <ul className="flex justify-between  items-center  p-4">
                 <li className="text-secondary text-2xl">{name}</li>

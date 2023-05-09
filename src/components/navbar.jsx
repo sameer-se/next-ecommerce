@@ -18,7 +18,7 @@ export default function NavBar() {
                         <li className="hover:text-secondary"><Link href="/contact">Contact</Link></li>                                   
                     </ul>
                     <div className="flex">
-                        <input type="search" name="search" className="border w-full justify-center" id="" />
+                        <input type="search" name="search" className="border w-full justify-center px-2 outline-none" id="" />
                         <div className=" bg-secondary text-white inline p-[10px]  hover:bg-primary ">
                         <FiSearch className="inline"/>
                         </div>
