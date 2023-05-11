@@ -18,9 +18,9 @@ export default function LatestProducts({product}) {
               {
                 images.length == 0 
                 ?
-                <Image src={Noimg}  alt="product img" className='w-full aspect-square object-fill rounded-t-xl'  height={200} width={200} />
+                <Image src={Noimg}  alt="product img" className='w-full aspect-square object-fill rounded-t-xl'  height={300} width={300} />
                 :
-                <Image src={images[0]}  alt="product img" className='w-full aspect-square object-fill rounded-t-xl'  height={200} width={200} />
+                <Image src={images[0]}  alt="product img" className='w-full aspect-square object-fill rounded-t-xl'  height={300} width={300} />
               }
             </div>
             <ul className="flex justify-between  items-center  p-4">

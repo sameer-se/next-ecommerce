@@ -10,7 +10,7 @@ export default function TrandingProducts() {
        <div className='pb-2'>
           <div className="h-[360px] w-[300px] border-2 rounded-xl hover:border-primary relative">
             <div className="h-[70%] bg-[#F6F7FB] rounded-t-xl">
-              <Image src={Wing} alt="product img" className="h-full w-full " />
+              <Image src={Wing} alt="product img" height={300} width={300} className="h-full w-full " />
             </div>
             <ul className="text-center">
                 <li className="text-secondary text-2xl ">Cantilever chair</li>

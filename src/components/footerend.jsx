@@ -6,7 +6,7 @@ export default function FooterEnd() {
     <footer>
         <div className="bg-[#E7E4F8] w-full ">
                     <div className="container">
-                        <div className='flex justify-around items-center p-4'>
+                        <div className='flex flex-wrap gap-4 justify-around items-center p-4'>
                             <p className='text-[#9DA0AE]'>©Webecy - All Rights Reserved</p>
                             <div className='flex gap-8 items-center'>
                                 <FaFacebook className='  h-6 w-6 text-[#151875] hover:text-secondary'/>
