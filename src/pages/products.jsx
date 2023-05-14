@@ -57,16 +57,17 @@ export default function Products({ products }) {
                     {
                         products.map(product => {
                             return( 
-                                <div key={product}  className="border p-3 flex gap-4">
-                                    <Image alt="" className="w-1/4" src={product.images[0]} width={300} height={300}/>
-                                    <div className="flex flex-col justify-between">
-                                        <p>{product.name}</p>
-                                        <p>{product.price}</p>
+                                <div key={product}  className="border p-4 flex gap-4 rounded-2xl">
+                                    <Image alt="" className="w-1/4 aspect-video object-fill" src={product.images[0]} width={300} height={300}/>
+                                    <div className="flex flex-col justify-between gap-4">
+                                        <p className="capitalize">{product.name}</p>
+                                        <p>${product.price}</p>
                                         <p>{product.discription}</p>
+                                        <button className="bg-secondary text-white h-[50px] hover:bg-primary">Buy Now</button>
                                         <ul className='flex top-3 left-2   gap-2 '>
-                                            <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 mb-4 rounded-full'><BsCart2 className=' hover:text-secondary  h-6 w-6 text-blue-gradient' /></li>
-                                            <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 mb-4 rounded-full'><AiOutlineHeart className=' hover:text-secondary  h-6 w-6 text-blue-gradient'/></li>
-                                            <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 mb-4 rounded-full'><AiOutlineZoomIn className='hover:text-secondary  h-6 w-6 text-blue-gradient'/></li>
+                                            <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full'><BsCart2 className=' hover:text-secondary  h-6 w-6 text-blue-gradient' /></li>
+                                            <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full'><AiOutlineHeart className=' hover:text-secondary  h-6 w-6 text-blue-gradient'/></li>
+                                            <li className='bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full'><AiOutlineZoomIn className='hover:text-secondary  h-6 w-6 text-blue-gradient'/></li>
                                         </ul>
                                     </div>
                                 </div>
