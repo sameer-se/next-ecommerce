@@ -1,44 +1,11 @@
 import Image from 'next/image'
 import Shell from '@/assets/shell.png'
-import Wing from "@/assets/pngwing.png"
-import Light from "@/assets/light.png"
-import { BsCart2 } from "react-icons/bs";
-import { AiOutlineHeart,AiOutlineZoomIn } from "react-icons/ai";
-import TrandingProducts from '@/components/TrandingProducts';
+import TrendingProducts from '@/components/TrendingProducts';
 import LatestProducts from '@/components/LatestProducts';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-
-export default function Home() {
-
-  const [products,setProducts] = useState([]);
-  const [tproducts, setTproducts] = useState([])
-
-
-  useEffect(() => {
-    axios.get('https://ecommerce-sagartmg2.vercel.app/api/products?per_page=6')
-    .then(res => {
-      console.log(res.data.data[0].data);
-      setProducts(res.data.data[0].data)
-      
-    })
-
-  }, [])
-
-  useEffect(() => {
-    axios.get('https://ecommerce-sagartmg2.vercel.app/api/products/trending?per_page=6')
-    .then(resp => {
-      console.log(resp);
-      setTproducts(resp)
-
-    })
-  
-
-  }, [])
-  
-
-
+export default function Home({products,trending}) {
 
   return (
     <div>
@@ -65,8 +32,8 @@ export default function Home() {
               {/* <p className='text-center text-4xl mb-[50px]'>Products</p> */}
               <div className='justify-center gap-5 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 '>
                 {
-                  products.map(tproduct=>{
-                    return <TrandingProducts key={tproduct._id}/>
+                  products.map(trending => {
+                    return <TrendingProducts key={trending._id}/>
                   })
                 }
               </div>            
@@ -97,4 +64,12 @@ export default function Home() {
       </main>
     </div>
   )
+}
+export async function getServerSideProps() {
+  let res = await axios.get ("https://ecommerce-sagartmg2.vercel.app/api/products?per_page=6")
+  return {
+      props:{
+          products:res.data.data[0].data
+      }
+  }
 }

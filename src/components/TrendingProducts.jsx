@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { BsCart2 } from "react-icons/bs";
 import { AiOutlineHeart,AiOutlineZoomIn } from "react-icons/ai";
 
-export default function TrandingProducts() {
+export default function TrendingProducts({trending}) {
   return (
     <div>
        <div className='pb-2'>
@@ -26,4 +26,12 @@ export default function TrandingProducts() {
         </div>
     </div>
   )
+}
+export async function getServerSideProps() {
+  let res = await axios.get("https://ecommerce-sagartmg2.vercel.app/api/products/trending?per_page=6")
+  return {
+      props:{
+          trending:res.data[0].data
+      }
+  }
 }
