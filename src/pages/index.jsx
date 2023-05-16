@@ -45,8 +45,10 @@ export default function Home({ products, trending }) {
           <div className="mt-[50px] mb-[50px]">
             {/* <p className='text-center text-4xl mb-[50px]'>Products</p> */}
             <div className="justify-center gap-5 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
-              {products.map((trending) => {
-                return <TrendingProducts key={trending._id} />;
+              {trending.map((trending) => {
+                return (
+                  <TrendingProducts trending={trending} key={trending._id} />
+                );
               })}
             </div>
           </div>
@@ -85,9 +87,13 @@ export async function getServerSideProps() {
   let res = await axios.get(
     "https://ecommerce-sagartmg2.vercel.app/api/products?per_page=6"
   );
+  let trending_res = await axios.get(
+    `https://ecommerce-sagartmg2.vercel.app/api/products/trending`
+  );
   return {
     props: {
       products: res.data.data[0].data,
+      trending: trending_res.data.data,
     },
   };
 }
