@@ -7,7 +7,7 @@ import Image from "next/image"
 import { useRouter } from "next/router"
 
 
-export default function Products({ products }) {
+export default function Products({ products,categories }) {
     const router = useRouter()
     return(
         <div>
@@ -60,12 +60,19 @@ export default function Products({ products }) {
             </div>
             <div className="container m-4 p-4 grid grid-cols-4 ">
                 
-                <div>
-                    <p className="text-primary underline">Product Brand</p>
-                    <ul>
-                        <li>Coaster Furniture</li>
-                        <li>Fusion Dot High Fis</li>
-                    </ul>
+                <div className="capitalize select-none">
+                    <p className="text-primary underline mb-2">Categories</p>
+                    {
+                        categories.map((cat,index)=>{
+                            return<>
+                                <div>
+                                    <input onChange={(e)=>{
+                                        router.push(`${router.route}?search_term=${e.target.name}`)
+                                    }} type="checkbox" name={`${cat}`} id={`${cat}-${index}`} /> <label htmlFor={`${cat}-${index}`}>{cat}</label>
+                                </div>
+                            </>
+                        })
+                    }
                 </div>
                 <div className=" col-start-2 col-end-5 flex flex-col gap-4">
                     {
@@ -101,11 +108,13 @@ export async function getServerSideProps(ctx) {
     params.forEach(parameter=>{
         url += `${parameter[0]}=${parameter[1]}&`
     })
-
     let res = await axios.get (url)
+
+    let categories_res = await axios.get(`https://ecommerce-sagartmg2.vercel.app/api/products/categories`)
     return {
         props:{
-            products:res.data.data[0].data
+            products:res.data.data[0].data,
+            categories: categories_res.data
         }
     }
 }
