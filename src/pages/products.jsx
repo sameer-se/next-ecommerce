@@ -4,10 +4,11 @@ import { BsCart2, BsFillGridFill } from "react-icons/bs"
 import React from 'react'
 import axios from "axios"
 import Image from "next/image"
+import { useRouter } from "next/router"
 
 
 export default function Products({ products }) {
-    let {name, price, images }=products
+    const router = useRouter()
     return(
         <div>
             {/* HEADER BANNER */}
@@ -28,20 +29,26 @@ export default function Products({ products }) {
                 <form className="flex gap-4">
                     <div className="text-primary">
                         Per Page:
-                        <select name="" id="" className="outline-none w-20 sm:ml-2">
-                            <option value="">5</option>
-                            <option value="">10</option>
-                            <option value="">20</option>
-                            <option value="">30</option>
+                        <select name="" id="" onChange={(e)=>{
+                            router.push(`${router.route}?per_page=${e.target.value}`)
+                        }} className="outline-none w-10 sm:ml-2">
+                            <option value=""></option>
+                            <option value="3">3</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
                         </select>
                     </div>
                     <div className="justify-center items-center">
                         <label htmlFor="" className="text-primary">Sort By:</label>
-                        <select name="" id="" className="sm:ml-2 text-primary outline-none">
-                            <option value="">Name asc</option>
-                            <option value="">Name desc</option>
-                            <option value="">Price asc</option>
-                            <option value="">Price desc</option>
+                        <select name="" id="" onChange={(e)=>{
+                            router.push(`${router.route}?sort=${e.target.value}`)
+                        }} className="sm:ml-2 text-primary outline-none">
+                            <option value=""></option>
+                            <option value="nameasc">Name</option>
+                            <option value="priceasc">Price Low-High</option>
+                            <option value="pricedesc">Price High-Low</option>
                         </select>                        
                     </div>
                     <div className="flex text-primary justify-center items-center">
@@ -52,7 +59,14 @@ export default function Products({ products }) {
                 </form>
             </div>
             <div className="container m-4 p-4 grid grid-cols-4 ">
-                <div>Filtesrs:</div>
+                
+                <div>
+                    <p className="text-primary underline">Product Brand</p>
+                    <ul>
+                        <li>Coaster Furniture</li>
+                        <li>Fusion Dot High Fis</li>
+                    </ul>
+                </div>
                 <div className=" col-start-2 col-end-5 flex flex-col gap-4">
                     {
                         products.map(product => {
@@ -81,8 +95,14 @@ export default function Products({ products }) {
 }
 
 
-export async function getServerSideProps() {
-    let res = await axios.get ("https://ecommerce-sagartmg2.vercel.app/api/products?per_page=6")
+export async function getServerSideProps(ctx) {
+    let url = 'https://ecommerce-sagartmg2.vercel.app/api/products?'
+    let params = Object.entries(ctx.query)
+    params.forEach(parameter=>{
+        url += `${parameter[0]}=${parameter[1]}&`
+    })
+
+    let res = await axios.get (url)
     return {
         props:{
             products:res.data.data[0].data
