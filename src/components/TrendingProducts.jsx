@@ -8,7 +8,7 @@ export default function TrendingProducts({ trending }) {
   return (
     <div>
       <div className="pb-2">
-        <div className="h-[360px] w-[300px] border-2 rounded-xl hover:border-primary relative">
+        <div className="h-[360px] border-2 rounded-xl hover:border-primary relative">
           <div className="h-[70%] bg-[#F6F7FB] rounded-t-xl">
             {/* <Image
               src={trending.images[0]}

@@ -9,6 +9,7 @@ import React from "react";
 import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import Noimg from "@/assets/noimg.jpeg";
 
 export default function Products({ products, categories }) {
   const router = useRouter();
@@ -106,13 +107,30 @@ export default function Products({ products, categories }) {
           {products.map((product) => {
             return (
               <div key={product} className="border p-4 flex gap-4 rounded-2xl">
-                <Image
+                {/* <Image
                   alt=""
                   className="w-1/4 aspect-video object-fill"
                   src={product.images[0]}
                   width={300}
                   height={300}
-                />
+                /> */}
+                {product.images.length == 0 ? (
+                  <Image
+                    src={Noimg}
+                    alt="product img"
+                    className="w-1/4 aspect-video object-fill rounded-t-xl"
+                    height={300}
+                    width={300}
+                  />
+                ) : (
+                  <Image
+                    src={product.images[0]}
+                    alt="product img"
+                    className="w-1/4 aspect-video object-fill rounded-t-xl"
+                    height={300}
+                    width={300}
+                  />
+                )}
                 <div className="flex flex-col justify-between gap-4">
                   <p className="capitalize">{product.name}</p>
                   <p>${product.price}</p>

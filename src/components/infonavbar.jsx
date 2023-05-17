@@ -2,6 +2,7 @@ import { FiMail, FiShoppingCart } from "react-icons/fi";
 import { BiPhoneCall } from "react-icons/bi";
 import { BsPerson } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
+import Link from "next/link";
 
 export default function InfoNavbar() {
   return (
@@ -14,17 +15,17 @@ export default function InfoNavbar() {
                 <li>
                   {" "}
                   <a
-                    className="items-center"
+                    className="flex items-center"
                     href="mailto: khadkasameer23@gmail.com"
                   >
-                    <FiMail className="inline" /> khadkasameer23@gmail.com{" "}
+                    <FiMail className="inline mr-1" /> khadkasameer23@gmail.com{" "}
                   </a>
                 </li>
                 <li>
                   {" "}
-                  <a href="tel: 9803378205">
+                  <a className="flex items-center" href="tel: 9803378205">
                     {" "}
-                    <BiPhoneCall className="inline" /> 9803378205
+                    <BiPhoneCall className="inline mr-1" /> 9803378205
                   </a>
                 </li>
               </ul>
@@ -36,19 +37,21 @@ export default function InfoNavbar() {
               </ul>
               <ul className="inline md:flex gap-4">
                 <li>
-                  <a>
-                    Login <BsPerson className="inline" />
-                  </a>{" "}
+                  <Link className="flex items-center" href="login/">
+                    Login
+                    <BsPerson className="inline ml-1" />
+                  </Link>
                 </li>
                 <li>
-                  <button>
-                    Wishlist <AiOutlineHeart className="inline" />
+                  <button className="flex items-center">
+                    Wishlist
+                    <AiOutlineHeart className="inline ml-1" />
                   </button>
                 </li>
               </ul>
               <div className="hidden md:flex list-none">
                 <li>
-                  <button>
+                  <button className="flex items-center">
                     <FiShoppingCart />
                   </button>
                 </li>

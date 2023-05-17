@@ -2,7 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-.container{
-margin-left: auto;
-margin-right: auto;
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+.text {
+  font-family: var(--font-lato);
 }

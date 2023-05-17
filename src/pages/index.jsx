@@ -10,7 +10,7 @@ export default function Home({ products, trending }) {
     <div>
       <main>
         {/* BANNER */}
-        <div className="bg-[#F2F0FF] p-4">
+        <div className="bg-[#F2F0FF] p-4 ">
           <div className="container lg:flex ">
             <div className=" m-4 p-4 lg:w-[50%]">
               <p className="text-secondary mb-2 text-x lg:text-2xl lg:mb-4 xl:mb-8">
@@ -42,9 +42,12 @@ export default function Home({ products, trending }) {
         </div>
         {/* PRODUCTS */}
         <div className="container">
+          <p className="text-center text-primary font-bold text-4xl m-4">
+            Trending Products
+          </p>
           <div className="mt-[50px] mb-[50px]">
             {/* <p className='text-center text-4xl mb-[50px]'>Products</p> */}
-            <div className="justify-center gap-5 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
+            <div className="justify-center gap-5 grid sm:grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
               {trending.map((trending) => {
                 return (
                   <TrendingProducts trending={trending} key={trending._id} />
@@ -72,7 +75,7 @@ export default function Home({ products, trending }) {
               </ul>
             </div>
             {/* LEATEST PRODUCT ITEMS BOXS */}
-            <div className="mt-4 p-4 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-4 p-4 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {products.map((product) => {
                 return <LatestProducts product={product} key={product._id} />;
               })}
@@ -85,7 +88,7 @@ export default function Home({ products, trending }) {
 }
 export async function getServerSideProps() {
   let res = await axios.get(
-    "https://ecommerce-sagartmg2.vercel.app/api/products?per_page=6"
+    "https://ecommerce-sagartmg2.vercel.app/api/products?per_page=8"
   );
   let trending_res = await axios.get(
     `https://ecommerce-sagartmg2.vercel.app/api/products/trending`
