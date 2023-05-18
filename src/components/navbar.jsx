@@ -1,6 +1,7 @@
 import { FiSearch } from "react-icons/fi";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 export default function NavBar() {
   const router = useRouter();
@@ -11,30 +12,37 @@ export default function NavBar() {
   return (
     <div className="container">
       <header className="p-4">
-        <nav className="md:flex justify-between items-center">
-          <div className="text-center">
-            <span className="text-4xl">Hekto</span>
+        <nav className="items-center lg:justify-between lg:flex">
+          <div className="flex justify-between items-center mb-4">
+            <div className="">
+              <span className="text-4xl">Hekto</span>
+            </div>
+            <div className="lg:hidden">
+              <RxHamburgerMenu className="h-8 w-8" />
+            </div>
           </div>
-          <ul className="list-none text-center pl-4 pr-4 md:flex gap-5">
-            <li className="hover:text-secondary">
-              <Link href="/">Home</Link>
-            </li>
-            <li className="hover:text-secondary">
-              <Link href="/pages">Pages</Link>
-            </li>
-            <li className="hover:text-secondary">
-              <Link href="/products">Products</Link>
-            </li>
-            <li className="hover:text-secondary">
-              <Link href="/blog">Blog</Link>
-            </li>
-            <li className="hover:text-secondary">
-              <Link href="/shop">Shop</Link>
-            </li>
-            <li className="hover:text-secondary">
-              <Link href="/contact">Contact</Link>
-            </li>
-          </ul>
+          <div className="hidden lg:flex">
+            <ul className="list-none text-center pl-4 pr-4 md:flex gap-5">
+              <li className="hover:text-secondary">
+                <Link href="/">Home</Link>
+              </li>
+              <li className="hover:text-secondary">
+                <Link href="/pages">Pages</Link>
+              </li>
+              <li className="hover:text-secondary">
+                <Link href="/products">Products</Link>
+              </li>
+              <li className="hover:text-secondary">
+                <Link href="/blog">Blog</Link>
+              </li>
+              <li className="hover:text-secondary">
+                <Link href="/shop">Shop</Link>
+              </li>
+              <li className="hover:text-secondary">
+                <Link href="/contact">Contact</Link>
+              </li>
+            </ul>
+          </div>
           <form className="flex" onSubmit={handelSearch}>
             <input
               type="search"

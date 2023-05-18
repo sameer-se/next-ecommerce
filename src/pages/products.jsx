@@ -118,7 +118,7 @@ export default function Products({ products, categories }) {
                   <Image
                     src={Noimg}
                     alt="product img"
-                    className="w-1/4 aspect-video object-fill rounded-t-xl"
+                    className="w-1/4 aspect-video object-fill rounded-xl"
                     height={300}
                     width={300}
                   />
@@ -126,7 +126,7 @@ export default function Products({ products, categories }) {
                   <Image
                     src={product.images[0]}
                     alt="product img"
-                    className="w-1/4 aspect-video object-fill rounded-t-xl"
+                    className="w-1/4 aspect-video object-fill rounded-xl"
                     height={300}
                     width={300}
                   />

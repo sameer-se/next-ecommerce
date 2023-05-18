@@ -47,7 +47,7 @@ export default function Home({ products, trending }) {
           </p>
           <div className="mt-[50px] mb-[50px]">
             {/* <p className='text-center text-4xl mb-[50px]'>Products</p> */}
-            <div className="justify-center gap-5 grid sm:grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
+            <div className="justify-center gap-5 grid sm:grid-cols-2  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
               {trending.map((trending) => {
                 return (
                   <TrendingProducts trending={trending} key={trending._id} />

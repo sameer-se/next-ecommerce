@@ -1,4 +1,4 @@
-import { FiMail, FiShoppingCart } from "react-icons/fi";
+import { FiMail, FiShoppingCart, FiLogIn } from "react-icons/fi";
 import { BiPhoneCall } from "react-icons/bi";
 import { BsPerson } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -37,15 +37,15 @@ export default function InfoNavbar() {
               </ul>
               <ul className="inline md:flex gap-4">
                 <li>
-                  <Link className="flex items-center" href="login/">
+                  <Link className="flex items-center" href="/login">
                     Login
                     <BsPerson className="inline ml-1" />
                   </Link>
                 </li>
                 <li>
                   <button className="flex items-center">
-                    Wishlist
-                    <AiOutlineHeart className="inline ml-1" />
+                    Signup
+                    <FiLogIn className="inline ml-1" />
                   </button>
                 </li>
               </ul>
