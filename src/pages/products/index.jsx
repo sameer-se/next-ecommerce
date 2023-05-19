@@ -153,7 +153,7 @@ export default function Products({ products, categories }) {
                     temporibus.
                   </p>
                   <div className="flex justify-between">
-                    <div className="flex gap-4">
+                    <div className="flex gap-4 mb-4 md:mb-0">
                       <button className="bg-secondary rounded-md shadow-lg text-white h-[50px] w-[100px] hover:bg-primary">
                         Add To Cart
                       </button>
@@ -161,15 +161,15 @@ export default function Products({ products, categories }) {
                         Buy Now
                       </button>
                     </div>
-                    <ul className="flex justify-center items-center top-3 left-2   gap-2 ">
+                    <ul className="flex md:justify-center md:items-center top-3 left-2   gap-2 ">
                       <li className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
-                        <AiFillMessage className=" hover:text-secondary  h-6 w-6 text-blue-gradient" />
+                        <AiFillMessage className=" hover:text-primary h-6 w-6 text-secondary" />
                       </li>
                       <li className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
-                        <AiOutlineHeart className=" hover:text-secondary  h-6 w-6 text-blue-gradient" />
+                        <AiOutlineHeart className=" hover:text-primary h-6 w-6 text-secondary" />
                       </li>
                       <li className="bg-primary-shade shadow-xl w-10 h-10 justify-center items-center p-2 rounded-full">
-                        <RiShareForwardFill className="hover:text-secondary  h-6 w-6 text-blue-gradient" />
+                        <RiShareForwardFill className="hover:text-primary h-6 w-6 text-secondary" />
                       </li>
                     </ul>
                   </div>
