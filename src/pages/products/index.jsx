@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import Link from "next/link";
 import {
   AiOutlineHeart,
@@ -109,11 +110,8 @@ export default function Products({ products, categories }) {
         <div className="col-start-2 col-end-5 flex flex-col gap-4">
           {products.map((product) => {
             return (
-              <div
-                key={product}
-                className="flex border p-4 gap-4 rounded-2xl max-h-[300px]"
-              >
-                <div className="w-2/5 aspect-video max-h-[250px]">
+              <div className="flex border p-4 gap-4 rounded-2xl max-h-[300px]">
+                <div className="w-2/5 aspect-video max-h-[280px]">
                   {product.images.length == 0 ? (
                     <Image
                       src={Noimg}
@@ -147,7 +145,7 @@ export default function Products({ products, categories }) {
                     <span className="ml-2">(23)</span>
                   </p>
                   <p>${product.price}</p>
-                  <p className="text-justify">
+                  <p className="text-justify h-20 overflow-hidden">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                     Accusamus facilis consequuntur dolores pariatur incidunt
                     nisi minus ullam veritatis blanditiis maxime rerum quo quae,

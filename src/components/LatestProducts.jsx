@@ -31,7 +31,9 @@ export default function LatestProducts({ product }) {
           )}
         </div>
         <ul className="flex justify-between  items-center  p-4">
-          <li className="text-secondary text-2xl capitalize">{name}</li>
+          <li className="text-secondary text-2xl capitalize">
+            <p className="h-8 w-64 overflow-clip">{name}</p>
+          </li>
           <li className="text-[#151875]">$ {price}</li>
         </ul>
         <ul className=" absolute top-3 left-2   gap-2">

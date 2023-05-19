@@ -3,8 +3,8 @@ import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
 import { MdStarRate } from "react-icons/md";
-import { AiOutlineHeart, AiOutlineZoomIn } from "react-icons/ai";
-import { BsCart2 } from "react-icons/bs";
+import { AiOutlineHeart, AiFillMessage } from "react-icons/ai";
+import { RiShareForwardFill } from "react-icons/ri";
 import React from "react";
 import Slider from "react-slick";
 
@@ -34,23 +34,21 @@ export default function SingleProduct({ product }) {
         </div>
       </div>
       {/* PRODUCT DETAILS */}
-      <div className="container m-4 p-4 gap-8 flex flex-wrap lg:grid lg:grid-cols-2">
-        <div className="flex h-full w-full justify-center items-center">
-          <Slider {...settings} className="aspect-video h-full w-full">
-            {product.images.map((img) => {
-              return (
-                <Image
-                  className="h-full w-full max-h-[400px] object-contain rounded-md"
-                  alt="Product Image"
-                  src={img}
-                  width={300}
-                  height={300}
-                />
-              );
-            })}
-          </Slider>
-        </div>
-        <div className="w-full gap-4 flex flex-col">
+      <div className="container m-6 p-2 md:p-6 gap-8 flex flex-wrap  lg:grid lg:grid-cols-2 rounded-xl border-2 shadow-lg">
+        <Slider {...settings} className="aspect-video h-[400px] w-full">
+          {product.images.map((img) => {
+            return (
+              <Image
+                className="w-full h-[400px] object-fill rounded-xl"
+                alt="Product Image"
+                src={img}
+                width={300}
+                height={300}
+              />
+            );
+          })}
+        </Slider>
+        <div className="w-full gap-4 flex flex-col justify-between">
           <p className="text-4xl font text-primary capitalize text-centers md:text-start">
             {product.name}
           </p>
@@ -70,25 +68,27 @@ export default function SingleProduct({ product }) {
             aliquam maxime corporis, autem in laudantium est dolor ipsam unde
             fugiat sed.
           </p>
-          <div className="flex gap-4">
-            <button className="bg-secondary rounded-md shadow-xl text-white h-[50px] w-[100px] hover:bg-primary">
-              Add To Cart
-            </button>
-            <button className="bg-secondary rounded-md shadow-xl text-white h-[50px] w-[80px] hover:bg-primary">
-              Buy Now
-            </button>
+          <div className="md:flex md:justify-between md:items-center">
+            <div className="flex gap-4 mb-4 md:mb-0">
+              <button className="bg-secondary rounded-md shadow-lg text-white h-[50px] w-[100px] hover:bg-primary">
+                Add To Cart
+              </button>
+              <button className="bg-secondary rounded-md shadow-lg text-white h-[50px] w-[80px] hover:bg-primary">
+                Buy Now
+              </button>
+            </div>
+            <ul className="flex md:justify-center md:items-center top-3 left-2   gap-2 ">
+              <li className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
+                <AiFillMessage className=" hover:text-secondary  h-6 w-6 text-blue-gradient" />
+              </li>
+              <li className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
+                <AiOutlineHeart className=" hover:text-secondary  h-6 w-6 text-blue-gradient" />
+              </li>
+              <li className="bg-primary-shade shadow-xl w-10 h-10 justify-center items-center p-2 rounded-full">
+                <RiShareForwardFill className="hover:text-secondary  h-6 w-6 text-blue-gradient" />
+              </li>
+            </ul>
           </div>
-          <ul className="flex top-3 left-2   gap-2 ">
-            <li className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
-              <BsCart2 className=" hover:text-secondary  h-6 w-6 text-blue-gradient" />
-            </li>
-            <li className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
-              <AiOutlineHeart className=" hover:text-secondary  h-6 w-6 text-blue-gradient" />
-            </li>
-            <li className="bg-primary-shade shadow-xl w-10 h-10 justify-center items-center p-2 rounded-full">
-              <AiOutlineZoomIn className="hover:text-secondary  h-6 w-6 text-blue-gradient" />
-            </li>
-          </ul>
         </div>
       </div>
     </div>
