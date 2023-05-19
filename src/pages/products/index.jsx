@@ -2,14 +2,16 @@ import Link from "next/link";
 import {
   AiOutlineHeart,
   AiOutlineUnorderedList,
-  AiOutlineZoomIn,
+  AiFillMessage,
 } from "react-icons/ai";
-import { BsCart2, BsFillGridFill } from "react-icons/bs";
+import { BsFillGridFill } from "react-icons/bs";
 import React from "react";
 import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Noimg from "@/assets/noimg.jpeg";
+import { MdStarRate } from "react-icons/md";
+import { RiShareForwardFill } from "react-icons/ri";
 
 export default function Products({ products, categories }) {
   const router = useRouter();
@@ -80,6 +82,7 @@ export default function Products({ products, categories }) {
           </div>
         </form>
       </div>
+
       <div className="container m-4 p-4 grid grid-cols-4 ">
         <div className="capitalize select-none">
           <p className="text-primary underline mb-2">Categories</p>
@@ -103,26 +106,19 @@ export default function Products({ products, categories }) {
             );
           })}
         </div>
-        <div className=" col-start-2 col-end-5 flex flex-col gap-4">
+        <div className="col-start-2 col-end-5 flex flex-col gap-4">
           {products.map((product) => {
             return (
-              <Link href={`products/${product._id}`} key="">
-                <div
-                  key={product}
-                  className="border p-4 flex gap-4 rounded-2xl"
-                >
-                  {/* <Image
-                  alt=""
-                  className="w-1/4 aspect-video object-fill"
-                  src={product.images[0]}
-                  width={300}
-                  height={300}
-                /> */}
+              <div
+                key={product}
+                className="flex border p-4 gap-4 rounded-2xl max-h-[300px]"
+              >
+                <div className="w-2/5 aspect-video max-h-[250px]">
                   {product.images.length == 0 ? (
                     <Image
                       src={Noimg}
                       alt="product img"
-                      className="w-1/4 aspect-video object-fill rounded-xl"
+                      className="w-full h-full object-fill rounded-xl"
                       height={300}
                       width={300}
                     />
@@ -130,32 +126,57 @@ export default function Products({ products, categories }) {
                     <Image
                       src={product.images[0]}
                       alt="product img"
-                      className="w-1/4 aspect-video object-fill rounded-xl"
+                      className="w-full h-full object-fill rounded-xl"
                       height={300}
                       width={300}
                     />
                   )}
-                  <div className="flex flex-col justify-between gap-4">
-                    <p className="capitalize">{product.name}</p>
-                    <p>${product.price}</p>
-                    <p>{product.discription}</p>
-                    <button className="bg-secondary text-white h-[50px] hover:bg-primary">
-                      Buy Now
-                    </button>
-                    <ul className="flex top-3 left-2   gap-2 ">
-                      <li className="bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full">
-                        <BsCart2 className=" hover:text-secondary  h-6 w-6 text-blue-gradient" />
+                </div>
+                <div className="flex flex-col justify-between gap-4">
+                  <Link href={`products/${product._id}`} key="">
+                    <p className="capitalize text-xl text-primary">
+                      {product.name}
+                    </p>
+                  </Link>
+                  <p className="flex items-center">
+                    <MdStarRate className="text-yellow-300" />
+                    <MdStarRate className="text-yellow-300" />
+                    <MdStarRate className="text-yellow-300" />
+                    <MdStarRate className="text-yellow-300" />
+                    <MdStarRate className="text-yellow-300" />
+                    <span className="ml-2">(23)</span>
+                  </p>
+                  <p>${product.price}</p>
+                  <p className="text-justify">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Accusamus facilis consequuntur dolores pariatur incidunt
+                    nisi minus ullam veritatis blanditiis maxime rerum quo quae,
+                    repellat consectetur quisquam itaque porro eligendi
+                    temporibus.
+                  </p>
+                  <div className="flex justify-between">
+                    <div className="flex gap-4">
+                      <button className="bg-secondary rounded-md shadow-lg text-white h-[50px] w-[100px] hover:bg-primary">
+                        Add To Cart
+                      </button>
+                      <button className="bg-secondary rounded-md shadow-lg text-white h-[50px] w-[80px] hover:bg-primary">
+                        Buy Now
+                      </button>
+                    </div>
+                    <ul className="flex justify-center items-center top-3 left-2   gap-2 ">
+                      <li className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
+                        <AiFillMessage className=" hover:text-secondary  h-6 w-6 text-blue-gradient" />
                       </li>
-                      <li className="bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full">
+                      <li className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
                         <AiOutlineHeart className=" hover:text-secondary  h-6 w-6 text-blue-gradient" />
                       </li>
-                      <li className="bg-primary-shade w-10 h-10 justify-center items-center p-2 rounded-full">
-                        <AiOutlineZoomIn className="hover:text-secondary  h-6 w-6 text-blue-gradient" />
+                      <li className="bg-primary-shade shadow-xl w-10 h-10 justify-center items-center p-2 rounded-full">
+                        <RiShareForwardFill className="hover:text-secondary  h-6 w-6 text-blue-gradient" />
                       </li>
                     </ul>
                   </div>
                 </div>
-              </Link>
+              </div>
             );
           })}
         </div>
