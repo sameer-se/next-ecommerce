@@ -48,9 +48,9 @@ export default function Products({ products, categories }) {
               onChange={(e) => {
                 router.push(`${router.route}?per_page=${e.target.value}`);
               }}
-              className="outline-none w-10 sm:ml-2"
+              className="outline-none w-20 sm:ml-2"
             >
-              <option value=""></option>
+              <option value="">select</option>
               <option value="3">3</option>
               <option value="5">5</option>
               <option value="10">10</option>
@@ -70,7 +70,7 @@ export default function Products({ products, categories }) {
               }}
               className="sm:ml-2 text-primary outline-none"
             >
-              <option value=""></option>
+              <option value="">Select</option>
               <option value="nameasc">Name</option>
               <option value="priceasc">Price Low-High</option>
               <option value="pricedesc">Price High-Low</option>

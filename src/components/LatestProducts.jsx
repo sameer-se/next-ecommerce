@@ -30,7 +30,7 @@ export default function LatestProducts({ product }) {
             />
           )}
         </div>
-        <ul className="flex justify-between  items-center  p-4">
+        <ul className="flex justify-between  items-center  p-4 flex-wrap">
           <li className="text-secondary text-2xl capitalize">
             <p className="h-8 w-64 overflow-clip">{name}</p>
           </li>

@@ -140,8 +140,8 @@ export default function Signup() {
               </div>
             </form>
             {/* ALREADY HAVE ACCOUNT */}
-            <p className="mt-10 text-center text-sm text-gray-500">
-              Already have account?
+            <p className="mt-10 text-center text-sm text-gray-500 flex gap-2 justify-center items-center">
+              <span>Already have account?</span>
               <Link
                 href="/login"
                 className="font-semibold leading-6 text-primary hover:text-secondary"
