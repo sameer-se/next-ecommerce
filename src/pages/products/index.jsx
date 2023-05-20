@@ -164,13 +164,13 @@ export default function Products({ products, categories }) {
                     </div>
                     <ul className="flex md:justify-center md:items-center top-3 left-2   gap-2 ">
                       <li className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
-                        <AiFillMessage className=" hover:text-primary h-6 w-6 text-primary" />
+                        <AiFillMessage className=" hover:text-secondary h-6 w-6 text-primary" />
                       </li>
                       <li className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
-                        <AiOutlineHeart className=" hover:text-primary h-6 w-6 text-primary" />
+                        <AiOutlineHeart className=" hover:text-secondary h-6 w-6 text-primary" />
                       </li>
                       <li className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
-                        <RiShareForwardFill className="hover:text-primary h-6 w-6 text-primary" />
+                        <RiShareForwardFill className="hover:text-secondary h-6 w-6 text-primary" />
                       </li>
                     </ul>
                   </div>
