@@ -3,7 +3,6 @@ import Shell from "@/assets/shell.png";
 import TrendingProducts from "@/components/TrendingProducts";
 import LatestProducts from "@/components/LatestProducts";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
 
 export default function Home({ products, trending }) {
   return (
@@ -23,7 +22,7 @@ export default function Home({ products, trending }) {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna
                 in est adipiscing <br /> in phasellus non in justo.
               </p>
-              <button className="bg-secondary text-white w-[163px] h-[50px] hover:bg-primary">
+              <button className="bg-primary text-white w-[163px] h-[50px] hover:bg-secondary rounded-xl">
                 Shop Now
               </button>
             </div>

@@ -43,10 +43,10 @@ export default function InfoNavbar() {
                   </Link>
                 </li>
                 <li>
-                  <button className="flex items-center">
+                  <Link href="/signup" className="flex items-center">
                     Signup
                     <FiLogIn className="inline ml-1" />
-                  </button>
+                  </Link>
                 </li>
               </ul>
               <div className="hidden md:flex list-none">

@@ -70,22 +70,22 @@ export default function SingleProduct({ product }) {
           </p>
           <div className="md:flex md:justify-between md:items-center">
             <div className="flex gap-4 mb-4 md:mb-0">
-              <button className="bg-secondary rounded-md shadow-lg text-white h-[50px] w-[100px] hover:bg-primary">
+              <button className="bg-primary rounded-md shadow-lg text-white h-[50px] w-[100px] hover:bg-secondary">
                 Add To Cart
               </button>
-              <button className="bg-secondary rounded-md shadow-lg text-white h-[50px] w-[80px] hover:bg-primary">
+              <button className="bg-primary rounded-md shadow-lg text-white h-[50px] w-[80px] hover:bg-secondary">
                 Buy Now
               </button>
             </div>
             <ul className="flex md:justify-center md:items-center top-3 left-2   gap-2 ">
               <li className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
-                <AiFillMessage className=" hover:text-primary h-6 w-6 text-secondary" />
+                <AiFillMessage className=" hover:text-secondary h-6 w-6 text-primary" />
               </li>
               <li className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
-                <AiOutlineHeart className=" hover:text-primary h-6 w-6 text-secondary" />
+                <AiOutlineHeart className=" hover:text-secondary h-6 w-6 text-primary" />
               </li>
               <li className="bg-primary-shade shadow-xl w-10 h-10 justify-center items-center p-2 rounded-full">
-                <RiShareForwardFill className="hover:text-primary h-6 w-6 text-secondary" />
+                <RiShareForwardFill className="hover:text-secondary h-6 w-6 text-primary" />
               </li>
             </ul>
           </div>
@@ -95,12 +95,22 @@ export default function SingleProduct({ product }) {
   );
 }
 export async function getServerSideProps(ctx) {
-  let res = await axios.get(
-    `https://ecommerce-sagartmg2.vercel.app/api/products/${ctx.query.slug}`
-  );
+  let product = null;
+  try {
+    let res = await axios.get(
+      `https://ecommerce-sagartmg2.vercel.app/api/products/${ctx.query.slug}`
+    );
+    product = res.data.data;
+  } catch (error) {
+    return {
+      notFound: true,
+      props: {},
+    };
+  }
+
   return {
     props: {
-      product: res.data.data,
+      product,
     },
   };
 }

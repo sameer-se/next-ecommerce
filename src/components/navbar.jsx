@@ -47,10 +47,10 @@ export default function NavBar() {
             <input
               type="search"
               name="search_term"
-              className="border w-full justify-center px-2 outline-none"
+              className="border w-full justify-center px-2 outline-none rounded-l-lg"
               id=""
             />
-            <button className=" bg-secondary text-white inline p-[10px]  hover:bg-primary ">
+            <button className=" bg-primary text-white inline p-[10px]  hover:bg-secondary rounded-r-lg">
               <FiSearch className="inline" />
             </button>
           </form>

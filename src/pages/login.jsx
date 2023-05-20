@@ -1,7 +1,5 @@
 import React from "react";
 
-export default function login({ setUser }) {
-  // const [first, setfirst] = useState(second)
-
+export default function Login() {
   return <div>login</div>;
 }

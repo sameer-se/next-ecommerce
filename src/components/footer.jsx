@@ -6,8 +6,11 @@ export default function Footer() {
           <div className="pt-10 pb-10 md:flex justify-between ">
             <div className="mb-4 ml-4 mr-4">
               <p className="text-6xl mb-4">Hekto</p>
-              <input type="text" className="h-10 mb-4" />
-              <button className="h-10 w-16 bg-secondary text-white  hover:bg-primary">
+              <input
+                type="text"
+                className="h-10 mb-4 outline-none pl-2 rounded-l-lg"
+              />
+              <button className="h-10 w-16 bg-primary text-white  hover:bg-secondary rounded-r-lg">
                 Sign up
               </button>
               <p className="text-[#8A8FB9]">Contact Info</p>
