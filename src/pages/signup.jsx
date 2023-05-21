@@ -3,15 +3,16 @@ import Link from "next/link";
 import axios from "axios";
 
 export default function Signup() {
+  const [name, setName] = useState();
   function handleSubmit(event) {
     event.preventDefault();
     console.log(event);
     axios
       .post("https://ecommerce-sagartmg2.vercel.app/api/users/signup", {
-        name: "sameer",
-        email: "sameer@buyer.com",
-        role: "buyer",
-        password: "password",
+        name: event.target.name.value,
+        email: event.target.email.value,
+        role: event.target.role.value,
+        password: event.target.password.value,
       })
       .catch((err) => {
         console.log(err);
@@ -61,6 +62,7 @@ export default function Signup() {
                   <input
                     id="name"
                     name="name"
+                    value={name}
                     type="text"
                     autoComplete="name"
                     // required
