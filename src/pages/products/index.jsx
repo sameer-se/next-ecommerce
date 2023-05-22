@@ -3,7 +3,7 @@ import Link from "next/link";
 import {
   AiOutlineHeart,
   AiOutlineUnorderedList,
-  AiFillMessage,
+  AiOutlineMessage,
 } from "react-icons/ai";
 import { BsFillGridFill } from "react-icons/bs";
 import React from "react";
@@ -164,7 +164,7 @@ export default function Products({ products, categories }) {
                     </div>
                     <ul className="flex md:justify-center md:items-center top-3 left-2   gap-2 ">
                       <li className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
-                        <AiFillMessage className=" hover:text-secondary h-6 w-6 text-primary" />
+                        <AiOutlineMessage className=" hover:text-secondary h-6 w-6 text-primary" />
                       </li>
                       <li className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
                         <AiOutlineHeart className=" hover:text-secondary h-6 w-6 text-primary" />

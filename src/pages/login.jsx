@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import axios from "axios";
+import { FaFacebookF, FaGoogle, FaTwitter } from "react-icons/fa";
 
 export default function Login() {
   function handleSubmit(event) {
@@ -109,6 +110,17 @@ export default function Login() {
                 Signup here
               </Link>
             </p>
+            <div className="flex gap-8 justify-center mt-4 items-center">
+              <div className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
+                <FaFacebookF className="  h-6 w-6 text-primary hover:text-secondary" />
+              </div>
+              <div className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
+                <FaGoogle className="rounded-full h-6 w-6 text-primary hover:text-secondary" />
+              </div>
+              <div className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
+                <FaTwitter className=" h-6 w-6 text-primary hover:text-secondary" />
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
 import { MdStarRate } from "react-icons/md";
-import { AiOutlineHeart, AiFillMessage } from "react-icons/ai";
+import { AiOutlineHeart, AiOutlineMessage } from "react-icons/ai";
 import { RiShareForwardFill } from "react-icons/ri";
 import React from "react";
 import Slider from "react-slick";
@@ -79,7 +79,7 @@ export default function SingleProduct({ product }) {
             </div>
             <ul className="flex md:justify-center md:items-center top-3 left-2   gap-2 ">
               <li className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
-                <AiFillMessage className=" hover:text-secondary h-6 w-6 text-primary" />
+                <AiOutlineMessage className=" hover:text-secondary h-6 w-6 text-primary" />
               </li>
               <li className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
                 <AiOutlineHeart className=" hover:text-secondary h-6 w-6 text-primary" />
