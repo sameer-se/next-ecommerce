@@ -1,24 +1,39 @@
+import { FiSearch } from "react-icons/fi";
+import { useRouter } from "next/router";
+import Link from "next/link";
+
 export default function Footer() {
+  const router = useRouter();
+  function handelSearch(e) {
+    e.preventDefault();
+    router.push("/products?search_term=" + e.target.search_term.value);
+  }
   return (
     <div>
       <footer className="bg-primary-shade w-full">
         <div className="container">
-          <div className="pt-10 pb-10 md:flex justify-between ">
+          <div className="pt-10 md:flex justify-between ">
             <div className="mb-4 ml-4 mr-4">
-              <p className="text-6xl mb-4">Hekto</p>
-              <input
-                type="text"
-                className="h-10 mb-4 outline-none pl-2 rounded-l-lg"
-              />
-              <button className="h-10 w-16 bg-primary text-white  hover:bg-secondary rounded-r-lg">
-                Sign up
-              </button>
-              <p className="text-[#8A8FB9]">Contact Info</p>
-              <p className="text-[#8A8FB9]">
+              <Link href="/">
+                <p className="text-6xl mb-4">Hekto</p>
+              </Link>
+              <form className="flex" onSubmit={handelSearch}>
+                <input
+                  type="search"
+                  name="search_term"
+                  className="border w-full justify-center px-2 outline-none rounded-l-lg"
+                  id=""
+                />
+                <button className=" bg-primary text-white inline p-[10px]  hover:bg-secondary rounded-r-lg">
+                  <FiSearch className="inline" />
+                </button>
+              </form>
+              <p className="text-[#8A8FB9] pl-1">Contact Info</p>
+              <p className="text-[#8A8FB9] pl-1">
                 17 Princess Road, London, Greater London NW1 8JR, UK
               </p>
             </div>
-            <div className="flex flex-wrap md:flex gap-20">
+            <div className="flex flex-wrap md:flex gap-4">
               <div className="m-4">
                 <ul>
                   <li className="text-2xl mb-2">Catagories</li>

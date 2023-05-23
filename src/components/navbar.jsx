@@ -15,7 +15,9 @@ export default function NavBar() {
         <nav className="items-center lg:justify-between lg:flex">
           <div className="flex justify-between items-center mb-4">
             <div className="">
-              <span className="text-4xl">Hekto</span>
+              <Link href="/">
+                <span className="text-4xl">Hekto</span>
+              </Link>
             </div>
             <div className="lg:hidden">
               <RxHamburgerMenu className="h-8 w-8" />
