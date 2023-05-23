@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import { FaFacebookF, FaGoogle, FaTwitter } from "react-icons/fa";
+import router from "next/router";
 
 export default function Signup() {
   const [name, setName] = useState();
@@ -40,8 +41,8 @@ export default function Signup() {
           password: event.target.password.value,
         })
         .then((res) => {
+          router.push("/login");
           alert("User Created");
-          <Link href="/login"></Link>;
         })
         .catch((err) => {
           console.log(err);

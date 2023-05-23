@@ -1,22 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import { FaFacebookF, FaGoogle, FaTwitter } from "react-icons/fa";
+import router, { useRouter } from "next/router";
 
 export default function Login() {
+  const router = useRouter();
+
+  const [email, setEmail] = useState();
+  // const [field_error, setfield_error] = useState({});
+
+  const [password, setPassword] = useState();
+  const [error, setErrors] = useState("");
+
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(event);
-    axios
-      .post("https://ecommerce-sagartmg2.vercel.app/api/users/login", {
-        name: "sameer",
-        email: "sameer@buyer.com",
-        role: "buyer",
-        password: "password",
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    let temp = {};
+    let validation = true;
+
+    // if (!email) {
+    //   temp.email = "required";
+    //   validation = false;
+    // }
+
+    // if (!password) {
+    //   temp.password = "required";
+    //   validation = false;
+    // }
+    setErrors(temp);
+    if (validation) {
+      axios
+        .post("https://ecommerce-sagartmg2.vercel.app/api/users/Login", {
+          email: event.target.email.value,
+          password: event.target.password.value,
+        })
+        .then((res) => {
+          router.push("/");
+          alert("Login Sucessful");
+        })
+        .catch((err) => {
+          console.log(err);
+          // let arr = re.data.errors;
+          // let temp = {};
+          setErrors(err.response.msg);
+        });
+    }
   }
   return (
     <div>
@@ -32,24 +60,25 @@ export default function Login() {
             <span>Pages</span>
           </Link>
           <span>.</span>
-          <Link href="/login">
+          <Link href="/Login">
             <span>Login</span>
           </Link>
         </div>
       </div>
       <div className="container mb-10">
-        <div className="flex min-h-full flex-col justify-center m-4 sm:px-6 py-12 lg:px-8 ">
+        <div className="flex min-h-full flex-col justify-center p-4 py-12 lg:px-8 ">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm"></div>
-          <div className="sm:mx-auto sm:w-full sm:max-w-[600px] border-2 p-6 sm:pb-16 rounded-xl shadow-lg">
+          <div className="sm:mx-auto sm:w-full sm:max-w-[600px] border-2 p-6  sm:pb-20 rounded-xl shadow-xl">
             <h2 className="mb-10 text-center text-2xl font-bold leading-9 tracking-tight text-primary">
-              Login to your account
+              Login for new account
             </h2>
             <form
               onSubmit={handleSubmit}
               className="space-y-6"
-              action="#"
-              method="POST"
+              // action="#"
+              // method="POST"
             >
+              {error && <p>{error}</p>}
               {/* Email Adderess */}
               <div>
                 <label
@@ -62,13 +91,21 @@ export default function Login() {
                   <input
                     id="email"
                     name="email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
                     type="email"
                     autoComplete="email"
                     // required
                     className="block w-full pl-2  outline-none rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-shade sm:text-sm sm:leading-6"
                   />
+                  {error.email && (
+                    <small className="text-red-500">{error.email}</small>
+                  )}
                 </div>
               </div>
+
               {/* PASSWORD */}
               <div>
                 <div className="flex items-center justify-between">
@@ -83,11 +120,18 @@ export default function Login() {
                   <input
                     id="password"
                     name="password"
+                    value={password}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
                     type="password"
                     autoComplete="current-password"
                     // required
                     className="block w-full outline-none pl-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-shade sm:text-sm sm:leading-6"
                   />
+                  {error.password && (
+                    <small className="text-red-500">{error.password}</small>
+                  )}
                 </div>
               </div>
               {/* SIGN UP BUTTON */}
@@ -96,13 +140,13 @@ export default function Login() {
                   type="submit"
                   className="flex w-full justify-center rounded-md bg-primary hover:bg-secondary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
-                  Sign Up
+                  Login
                 </button>
               </div>
             </form>
-            {/* DON'T HAVE ACCOUNT */}
-            <p className="mt-10 text-center text-sm text-gray-500 flex justify-center items-center gap-2">
-              <span>Already have account?</span>
+            {/* ALREADY HAVE ACCOUNT */}
+            <p className="mt-10 text-center text-sm text-gray-500 flex gap-2 justify-center items-center">
+              <span>Don`t have account?</span>
               <Link
                 href="/signup"
                 className="font-semibold leading-6 text-primary hover:text-secondary"
