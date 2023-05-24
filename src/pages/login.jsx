@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import { FaFacebookF, FaGoogle, FaTwitter } from "react-icons/fa";
-import router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
 export default function Login() {
   const router = useRouter();
@@ -11,23 +11,26 @@ export default function Login() {
   // const [field_error, setfield_error] = useState({});
 
   const [password, setPassword] = useState();
-  const [error, setErrors] = useState("");
+  const [error, setErrors] = useState({
+    email: "",
+    password: "",
+    message: "",
+  });
 
   function handleSubmit(event) {
     event.preventDefault();
-    let temp = {};
     let validation = true;
 
-    // if (!email) {
-    //   temp.email = "required";
-    //   validation = false;
-    // }
+    if (!email) {
+      setErrors((prev) => ({ ...prev, email: "required" }));
+      validation = false;
+    }
 
-    // if (!password) {
-    //   temp.password = "required";
-    //   validation = false;
-    // }
-    setErrors(temp);
+    if (!password) {
+      setErrors((prev) => ({ ...prev, password: "required" }));
+
+      validation = false;
+    }
     if (validation) {
       axios
         .post("https://ecommerce-sagartmg2.vercel.app/api/users/Login", {
@@ -42,10 +45,11 @@ export default function Login() {
           console.log(err);
           // let arr = re.data.errors;
           // let temp = {};
-          setErrors(err.response.msg);
+          setErrors((prev) => ({ ...prev, message: err.response.data.msg }));
         });
     }
   }
+  console.log("Error:::", error);
   return (
     <div>
       {/* HEADER BANNER */}
@@ -78,7 +82,11 @@ export default function Login() {
               // action="#"
               // method="POST"
             >
-              {error && <p>{error}</p>}
+              {error.message && (
+                <p className="text-red-500 bg-red-200 p-2 text-center rounded-md">
+                  {error.message}
+                </p>
+              )}
               {/* Email Adderess */}
               <div>
                 <label

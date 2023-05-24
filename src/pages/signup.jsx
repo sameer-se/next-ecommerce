@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import axios from "axios";
 import { FaFacebookF, FaGoogle, FaTwitter } from "react-icons/fa";
 import router from "next/router";
+import { useState } from "react";
 
 export default function Signup() {
   const [name, setName] = useState();
