@@ -1,8 +1,10 @@
-import { FiMail, FiShoppingCart, FiLogIn } from "react-icons/fi";
+import { FiMail, FiShoppingCart } from "react-icons/fi";
 import { BiPhoneCall } from "react-icons/bi";
 import Link from "next/link";
 
-export default function InfoNavbar() {
+export default function InfoNavbar({ user }) {
+  let logged_in = user;
+
   return (
     <div>
       <header className="bg-primary text-white">
@@ -34,16 +36,33 @@ export default function InfoNavbar() {
                 <li>USD</li>
               </ul>
               <ul className="inline md:flex gap-4">
-                <li>
-                  <Link className="flex items-center" href="/login">
-                    Login
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/signup" className="flex items-center">
-                    Signup
-                  </Link>
-                </li>
+                {logged_in ? (
+                  <>
+                    <li>
+                      <Link className="flex items-center" href="/">
+                        {user?.name}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/signup" className="flex items-center">
+                        Signup
+                      </Link>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li>
+                      <Link className="flex items-center" href="/login">
+                        Login
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/signup" className="flex items-center">
+                        Signup
+                      </Link>
+                    </li>
+                  </>
+                )}
               </ul>
               <div className="hidden md:flex list-none">
                 <li>

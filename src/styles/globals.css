@@ -9,3 +9,6 @@
 .text {
   font-family: var(--font-lato);
 }
+* {
+  box-sizing: border-box;
+}
