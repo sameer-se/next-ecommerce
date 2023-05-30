@@ -7,10 +7,12 @@ import { useRouter } from "next/router";
 export default function Login() {
   const router = useRouter();
 
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
 
   const [email, setEmail] = useState();
   // const [field_error, setfield_error] = useState({});
+
+  // use;
 
   const [password, setPassword] = useState();
   const [error, setErrors] = useState({

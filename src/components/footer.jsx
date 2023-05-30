@@ -33,7 +33,7 @@ export default function Footer() {
                 17 Princess Road, London, Greater London NW1 8JR, UK
               </p>
             </div>
-            <div className="flex flex-wrap md:flex gap-4">
+            <div className="flex flex-wrap md:flex gap-4 p-4">
               <div className="m-4">
                 <ul>
                   <li className="text-2xl mb-2">Catagories</li>

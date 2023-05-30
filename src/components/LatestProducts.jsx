@@ -9,7 +9,7 @@ export default function LatestProducts({ product }) {
 
   return (
     <div>
-      <div className=" border-2 hover:border-primary rounded-xl relative">
+      <div className=" border-2 hover:m-[-10px] hover:shadow-xl hover:border-primary rounded-xl relative">
         <div className="h-[85%]  bg-primary-shade rounded-t-xl">
           {/* <Image src={images[0]}  alt="product img" className='w-full aspect-square object-fill rounded-t-xl'  height={200} width={200} /> */}
           {images.length == 0 ? (
@@ -32,7 +32,7 @@ export default function LatestProducts({ product }) {
         </div>
         <ul className="flex justify-between  items-center  p-4 flex-wrap">
           <li className="text-secondary text-2xl capitalize">
-            <p className="h-8 w-64 overflow-clip">{name}</p>
+            <p className="h-8 overflow-clip">{name}</p>
           </li>
           <li className="text-[#151875]">$ {price}</li>
         </ul>
