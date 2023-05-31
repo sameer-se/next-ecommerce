@@ -9,7 +9,7 @@ export default function LatestProducts({ product }) {
 
   return (
     <div>
-      <div className=" border-2 hover:m-[-10px] hover:shadow-xl hover:border-primary rounded-xl relative">
+      <div className=" border-2 hover:scale-105 hover:shadow-xl hover:border-primary rounded-xl relative">
         <div className="h-[85%]  bg-primary-shade rounded-t-xl">
           {/* <Image src={images[0]}  alt="product img" className='w-full aspect-square object-fill rounded-t-xl'  height={200} width={200} /> */}
           {images.length == 0 ? (

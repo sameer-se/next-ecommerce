@@ -8,8 +8,9 @@ import { Lato } from "next/font/google";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import store from "./redux/store";
+import { store } from "@/redux/store";
 import { Provider } from "react-redux";
+// import { Provider } from "react-redux";
 
 export default function App({ Component, pageProps }) {
   // const LatoFont = Lato({ subsets: ["latin"] });
