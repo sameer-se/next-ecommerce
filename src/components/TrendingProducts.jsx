@@ -10,13 +10,6 @@ export default function TrendingProducts({ trending }) {
       <div className="pb-2">
         <div className="h-[400px] border-2 rounded-xl hover:shadow-lg hover:scale-105 hover:border-primary relative">
           <div className="h-[70%] bg-[#F6F7FB] rounded-t-xl">
-            {/* <Image
-              src={trending.images[0]}
-              alt="product img"
-              height={300}
-              width={300}
-              className="h-full w-full rounded-t-xl"
-            /> */}
             {trending.images.length == 0 ? (
               <Image
                 alt="noimg"

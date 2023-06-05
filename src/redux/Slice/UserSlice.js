@@ -9,7 +9,7 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setReduxUser: (state) => {
-      state.value = { name: "ram" };
+      state.value = {};
     },
   },
 });

@@ -111,7 +111,7 @@ export default function Products({ products, categories }) {
         <div className="col-start-2 col-end-5 flex flex-col gap-6">
           {products.map((product) => {
             return (
-              <div className="flex border-2 shadow-sm p-4 gap-4 rounded-2xl max-h-[300px] hover:m-[-2px] hover:shadow-xl ">
+              <div className="flex border-2 shadow-sm p-4 gap-4 rounded-2xl max-h-[300px] hover:shadow-xl hover:border-primary-shade">
                 <div className="w-2/5 aspect-video max-h-[280px]">
                   {product.images.length == 0 ? (
                     <Image

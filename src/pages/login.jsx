@@ -3,6 +3,7 @@ import Link from "next/link";
 import axios from "axios";
 import { FaFacebookF, FaGoogle, FaTwitter } from "react-icons/fa";
 import { useRouter } from "next/router";
+import { setReduxUser } from "@/redux/Slice/UserSlice";
 
 export default function Login() {
   const router = useRouter();
@@ -42,8 +43,11 @@ export default function Login() {
           password: event.target.password.value,
         })
         .then((res) => {
-          router.push("/");
-          alert("Login Sucessful");
+          console.log("set redux user");
+          setReduxUser();
+          // setissubmitting(false);
+          // router.push("/");
+          // alert("Login Sucessful");
         })
         .catch((err) => {
           console.log(err);
@@ -53,7 +57,6 @@ export default function Login() {
         });
     }
   }
-  console.log("Error:::", error);
   return (
     <div>
       {/* HEADER BANNER */}
