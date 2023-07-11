@@ -16,7 +16,7 @@ export default function Home({ products, trending }) {
                 Best Furniture For Your Castle....
               </p>
               <h1 className="text-2xl mb-2 lg:text-4xl lg:mb-4  xl:mb-4">
-                New Furniture Collection <br /> Trends in 2023
+                New Furniture Collection <br /> Trends in 2024
               </h1>
               <p className="mb-2 text-clip lg:text-lg lg:mb-4 xl:text-x xl:mb-8">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna
