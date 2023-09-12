@@ -6,9 +6,9 @@
   margin-left: auto;
   margin-right: auto;
 }
-.text {
-  font-family: var(--font-lato);
-}
 * {
   box-sizing: border-box;
+}
+.text {
+  font-family: var(--font-lato);
 }
