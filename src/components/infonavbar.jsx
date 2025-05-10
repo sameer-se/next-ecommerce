@@ -16,16 +16,16 @@ export default function InfoNavbar({ user }) {
                   {" "}
                   <a
                     className="flex items-center"
-                    href="mailto: khadkasameer23@gmail.com"
+                    href="mailto: ecomeonline23@gmail.com"
                   >
-                    <FiMail className="inline mr-1" /> khadkasameer23@gmail.com{" "}
+                    <FiMail className="inline mr-1" /> ecomonline@gmail.com{" "}
                   </a>
                 </li>
                 <li>
                   {" "}
-                  <a className="flex items-center" href="tel: 9803378205">
+                  <a className="flex items-center" href="tel: 984325324083245">
                     {" "}
-                    <BiPhoneCall className="inline mr-1" /> 9803378205
+                    <BiPhoneCall className="inline mr-1" /> 9889504348952
                   </a>
                 </li>
               </ul>
