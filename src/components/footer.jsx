@@ -1,6 +1,7 @@
-import { FiSearch } from "react-icons/fi";
+import { FiSearch, FiMapPin, FiPhone, FiMail } from "react-icons/fi";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { FaCreditCard, FaShippingFast, FaHeadset, FaGift } from "react-icons/fa";
 
 export default function Footer() {
   const router = useRouter();
@@ -10,61 +11,174 @@ export default function Footer() {
   }
   return (
     <div>
-      <footer className="bg-primary-shade w-full">
-        <div className="container">
-          <div className="pt-10 md:flex justify-between ">
-            <div className="mb-4 ml-4 mr-4">
-              <Link href="/">
-                <p className="text-6xl mb-4">Hekto</p>
+      {/* Features Section */}
+      <div className="bg-gray-50 py-10 border-t border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="flex items-start space-x-4">
+              <div className="bg-primary/10 p-3 rounded-full">
+                <FaShippingFast className="text-primary text-2xl" />
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-800 mb-1">Free Shipping</h3>
+                <p className="text-gray-600 text-sm">Free shipping on all orders over $99</p>
+              </div>
+            </div>
+            
+            <div className="flex items-start space-x-4">
+              <div className="bg-primary/10 p-3 rounded-full">
+                <FaCreditCard className="text-primary text-2xl" />
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-800 mb-1">Secure Payment</h3>
+                <p className="text-gray-600 text-sm">100% secure payment methods</p>
+              </div>
+            </div>
+            
+            <div className="flex items-start space-x-4">
+              <div className="bg-primary/10 p-3 rounded-full">
+                <FaHeadset className="text-primary text-2xl" />
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-800 mb-1">24/7 Support</h3>
+                <p className="text-gray-600 text-sm">Dedicated support team</p>
+              </div>
+            </div>
+            
+            <div className="flex items-start space-x-4">
+              <div className="bg-primary/10 p-3 rounded-full">
+                <FaGift className="text-primary text-2xl" />
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-800 mb-1">Special Offers</h3>
+                <p className="text-gray-600 text-sm">Save up to 25% on your first order</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Main Footer */}
+      <footer className="bg-gray-900 text-white pt-16 pb-8">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Company Info */}
+            <div>
+              <Link href="/" className="inline-block mb-6">
+                <h2 className="text-3xl font-bold text-white">Hekto</h2>
               </Link>
-              <form className="flex" onSubmit={handelSearch}>
+              
+              <p className="text-gray-400 mb-6">
+                Premium furniture and home decor for modern living. Quality craftsmanship for every room.
+              </p>
+              
+              <form className="flex mb-6" onSubmit={handelSearch}>
                 <input
-                  type="search"
-                  name="search_term"
-                  className="border w-full justify-center px-2 outline-none rounded-l-lg"
-                  id=""
+                  type="email"
+                  placeholder="Your email address"
+                  className="bg-gray-800 text-gray-200 px-4 py-3 w-full rounded-l-md focus:outline-none focus:ring-1 focus:ring-primary"
                 />
-                <button className=" bg-primary text-white inline p-[10px]  hover:bg-secondary rounded-r-lg">
-                  <FiSearch className="inline" />
+                <button className="bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-r-md transition duration-300">
+                  Subscribe
                 </button>
               </form>
-              <p className="text-[#8A8FB9] pl-1">Contact Info</p>
-              <p className="text-[#8A8FB9] pl-1">
-                17 Princess Road, London, Greater London NW1 8JR, UK
-              </p>
             </div>
-            <div className="flex flex-wrap md:flex gap-4 p-4">
-              <div className="m-4">
-                <ul>
-                  <li className="text-2xl mb-2">Catagories</li>
-                  <li className="text-[#8A8FB9]">Laptops & Computers</li>
-                  <li className="text-[#8A8FB9]">Cameras & Photography</li>
-                  <li className="text-[#8A8FB9]">Smart Phones & Tablets</li>
-                  <li className="text-[#8A8FB9]">Video Games & Consoles</li>
-                  <li className="text-[#8A8FB9]">Waterproof Headphones</li>
-                </ul>
-              </div>
-              <div className="m-4">
-                <ul>
-                  <li className="text-2xl mb-2">Customer Care</li>
-                  <li className="text-[#8A8FB9]">My Account</li>
-                  <li className="text-[#8A8FB9]">Discount</li>
-                  <li className="text-[#8A8FB9]">Returns</li>
-                  <li className="text-[#8A8FB9]">Orders History</li>
-                  <li className="text-[#8A8FB9]">Order Tracking</li>
-                </ul>
-              </div>
-              <div className="m-4 pb-4">
-                <ul>
-                  <li className="text-2xl mb-2">Pages</li>
-                  <li className="text-[#8A8FB9]">Blog</li>
-                  <li className="text-[#8A8FB9]">Browse the Shop</li>
-                  <li className="text-[#8A8FB9]">Category</li>
-                  <li className="text-[#8A8FB9]">Pre-Built Pages</li>
-                  <li className="text-[#8A8FB9]">Visual Composer Elements</li>
-                  <li className="text-[#8A8FB9]">WooCommerce Pages</li>
-                </ul>
-              </div>
+            
+            {/* Categories */}
+            <div>
+              <h3 className="text-lg font-bold mb-6 relative inline-block">
+                <span className="after:content-[''] after:absolute after:w-1/2 after:h-1 after:bg-primary after:left-0 after:bottom-[-8px]">
+                  Categories
+                </span>
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/products" className="text-gray-400 hover:text-primary transition duration-300">
+                    Living Room Furniture
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/products" className="text-gray-400 hover:text-primary transition duration-300">
+                    Bedroom Collections
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/products" className="text-gray-400 hover:text-primary transition duration-300">
+                    Dining & Kitchen
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/products" className="text-gray-400 hover:text-primary transition duration-300">
+                    Office Furniture
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/products" className="text-gray-400 hover:text-primary transition duration-300">
+                    Home Decor & Accessories
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            
+            {/* Customer Service */}
+            <div>
+              <h3 className="text-lg font-bold mb-6 relative inline-block">
+                <span className="after:content-[''] after:absolute after:w-1/2 after:h-1 after:bg-primary after:left-0 after:bottom-[-8px]">
+                  Customer Service
+                </span>
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/pages" className="text-gray-400 hover:text-primary transition duration-300">
+                    My Account
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/pages" className="text-gray-400 hover:text-primary transition duration-300">
+                    Track Your Order
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/pages" className="text-gray-400 hover:text-primary transition duration-300">
+                    Shipping & Returns
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/pages" className="text-gray-400 hover:text-primary transition duration-300">
+                    FAQs & Help
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="text-gray-400 hover:text-primary transition duration-300">
+                    Contact Us
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            
+            {/* Contact Info */}
+            <div>
+              <h3 className="text-lg font-bold mb-6 relative inline-block">
+                <span className="after:content-[''] after:absolute after:w-1/2 after:h-1 after:bg-primary after:left-0 after:bottom-[-8px]">
+                  Contact Us
+                </span>
+              </h3>
+              <ul className="space-y-4">
+                <li className="flex items-start space-x-3">
+                  <FiMapPin className="text-primary mt-1 flex-shrink-0" />
+                  <span className="text-gray-400">
+                    17 Princess Road, London, Greater London NW1 8JR, UK
+                  </span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <FiPhone className="text-primary flex-shrink-0" />
+                  <span className="text-gray-400">+44 20 7946 0958</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <FiMail className="text-primary flex-shrink-0" />
+                  <span className="text-gray-400">support@hekto.com</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

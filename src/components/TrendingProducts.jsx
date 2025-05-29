@@ -88,58 +88,109 @@ export default function TrendingProducts({ trending }) {
   };
 
   return (
-    <div>
-      <div className="pb-2">
-        <div 
-          onClick={handleViewDetails}
-          className="h-[400px] border-2 rounded-xl hover:shadow-lg hover:scale-105 hover:border-primary relative cursor-pointer"
-        >
-          <div className="h-[70%] bg-[#F6F7FB] rounded-t-xl">
-            {trending.images.length == 0 ? (
-              <Image
-                alt="noimg"
-                src={Noimg}
-                height={300}
-                width={300}
-                className="h-full w-full rounded-t-xl"
-              />
-            ) : (
-              <Image
-                src={trending.images[0]}
-                alt="product img"
-                height={300}
-                width={300}
-                className="h-full w-full rounded-t-xl"
-              />
-            )}
+    <div className="group">
+      <div 
+        onClick={handleViewDetails}
+        className="relative overflow-hidden rounded-xl bg-white shadow-md hover:shadow-xl transition-all duration-300 transform group-hover:scale-[1.02] cursor-pointer border border-gray-100"
+      >
+        {/* Sale Badge */}
+        <div className="absolute top-4 right-4 z-10">
+          <div className="bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+            SALE
           </div>
-          <ul className="text-center">
-            <li className="text-secondary text-2xl capitalize">
-              {trending.name}
-            </li>
-            <li className="text-[#151875]">code-Y523201</li>
-            <li className="text-[#151875]">${trending.prices || trending.price}</li>
-          </ul>
-          <ul className="flex absolute top-3 left-2 gap-2">
-            <li 
+        </div>
+        
+        {/* Product Image */}
+        <div className="relative h-64 overflow-hidden bg-gray-100 rounded-t-xl">
+          {trending.images.length == 0 ? (
+            <Image
+              alt="Product Image"
+              src={Noimg}
+              height={300}
+              width={300}
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+          ) : (
+            <Image
+              src={trending.images[0]}
+              alt={trending.name}
+              height={300}
+              width={300}
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+          )}
+          
+          {/* Quick Action Buttons */}
+          <div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <div className="flex gap-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+              <button 
+                onClick={handleAddToCart}
+                className="bg-white text-primary w-10 h-10 rounded-full flex items-center justify-center shadow-md hover:bg-primary hover:text-white transition-colors duration-300"
+                aria-label="Add to cart"
+              >
+                <BsCart2 className="h-5 w-5" />
+              </button>
+              
+              <button 
+                onClick={handleToggleWishlist}
+                className={`w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-colors duration-300 ${
+                  isInWishlist 
+                    ? 'bg-primary text-white' 
+                    : 'bg-white text-primary hover:bg-primary hover:text-white'
+                }`}
+                aria-label="Add to wishlist"
+              >
+                <AiOutlineHeart className="h-5 w-5" />
+              </button>
+              
+              <button 
+                onClick={handleViewDetails}
+                className="bg-white text-primary w-10 h-10 rounded-full flex items-center justify-center shadow-md hover:bg-primary hover:text-white transition-colors duration-300"
+                aria-label="Quick view"
+              >
+                <AiOutlineZoomIn className="h-5 w-5" />
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        {/* Product Info */}
+        <div className="p-6">
+          <h3 className="text-lg font-semibold text-gray-800 mb-2 capitalize line-clamp-1 group-hover:text-primary transition-colors duration-300">{trending.name}</h3>
+          
+          <div className="flex items-center text-yellow-400 mb-3">
+            {[...Array(5)].map((_, i) => (
+              <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 fill-current" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
+            <span className="text-gray-500 ml-2 text-sm">(23 reviews)</span>
+          </div>
+          
+          <div className="flex justify-between items-center mb-4">
+            <div>
+              <span className="text-primary font-bold text-xl">${trending.prices || trending.price}</span>
+              <span className="text-gray-500 text-sm line-through ml-2">${Math.round((trending.prices || trending.price) * 1.2)}</span>
+            </div>
+            <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">In Stock</span>
+          </div>
+          
+          <p className="text-gray-600 mb-4 line-clamp-2">Premium quality furniture piece designed for comfort and style. Perfect addition to any modern home.</p>
+          
+          <div className="flex gap-2 mt-2">
+            <button 
               onClick={handleAddToCart}
-              className="bg-primary-shade w-8 h-8 flex justify-center items-center p-2 rounded-full hover:bg-primary hover:text-white cursor-pointer transition-colors"
+              className="flex-1 py-2 bg-primary text-white rounded-lg hover:bg-secondary transition-colors duration-300 flex items-center justify-center gap-2"
             >
-              <BsCart2 className="h-4 w-4" />
-            </li>
-            <li 
-              onClick={handleToggleWishlist}
-              className={`w-8 h-8 flex justify-center items-center p-2 rounded-full cursor-pointer transition-colors ${isInWishlist ? 'bg-primary text-white' : 'bg-primary-shade hover:bg-primary hover:text-white'}`}
-            >
-              <AiOutlineHeart className="h-4 w-4" />
-            </li>
-            <li 
+              <BsCart2 /> Add To Cart
+            </button>
+            <button 
               onClick={handleViewDetails}
-              className="bg-primary-shade w-8 h-8 flex justify-center items-center p-2 rounded-full hover:bg-primary hover:text-white cursor-pointer transition-colors"
+              className="px-4 py-2 border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors duration-300"
             >
-              <AiOutlineZoomIn className="h-4 w-4" />
-            </li>
-          </ul>
+              Details
+            </button>
+          </div>
         </div>
       </div>
     </div>
