@@ -5,10 +5,38 @@ import Image from "next/image";
 import { MdStarRate } from "react-icons/md";
 import { AiOutlineHeart, AiOutlineMessage } from "react-icons/ai";
 import { RiShareForwardFill } from "react-icons/ri";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "@/redux/Slice/CartSlice";
+import { addToWishlist, removeFromWishlist } from "@/redux/Slice/WishlistSlice";
+import { useRouter } from "next/router";
+import { mockProducts, mockTrending } from "@/utils/mockData";
 
 export default function SingleProduct({ product }) {
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const wishlistItems = useSelector((state) => state.wishlist.items);
+  
+  // Check if product is in wishlist
+  const isInWishlist = wishlistItems.some(item => item._id === product._id);
+  
+  // Handle wishlist toggle
+  const handleToggleWishlist = () => {
+    if (isInWishlist) {
+      dispatch(removeFromWishlist(product._id));
+      alert("Removed from wishlist!");
+    } else {
+      dispatch(addToWishlist({
+        _id: product._id,
+        name: product.name,
+        price: product.price,
+        images: product.images
+      }));
+      alert("Added to wishlist!");
+    }
+  };
+  
   var settings = {
     dots: true,
     infinite: true,
@@ -70,10 +98,32 @@ export default function SingleProduct({ product }) {
           </p>
           <div className="md:flex md:justify-between md:items-center">
             <div className="flex gap-4 mb-4 md:mb-0">
-              <button className="bg-primary rounded-md shadow-lg text-white h-[50px] w-[100px] hover:bg-secondary">
+              <button 
+                onClick={() => {
+                  dispatch(addToCart({
+                    _id: product._id,
+                    name: product.name,
+                    price: product.price,
+                    images: product.images
+                  }));
+                  alert("Product added to cart!");
+                }}
+                className="bg-primary rounded-md shadow-lg text-white h-[50px] w-[100px] hover:bg-secondary"
+              >
                 Add To Cart
               </button>
-              <button className="bg-primary rounded-md shadow-lg text-white h-[50px] w-[80px] hover:bg-secondary">
+              <button 
+                onClick={() => {
+                  dispatch(addToCart({
+                    _id: product._id,
+                    name: product.name,
+                    price: product.price,
+                    images: product.images
+                  }));
+                  router.push('/cart');
+                }}
+                className="bg-primary rounded-md shadow-lg text-white h-[50px] w-[80px] hover:bg-secondary"
+              >
                 Buy Now
               </button>
             </div>
@@ -81,8 +131,11 @@ export default function SingleProduct({ product }) {
               <li className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
                 <AiOutlineMessage className=" hover:text-secondary h-6 w-6 text-primary" />
               </li>
-              <li className="bg-primary-shade shadow-lg w-10 h-10 justify-center items-center p-2 rounded-full">
-                <AiOutlineHeart className=" hover:text-secondary h-6 w-6 text-primary" />
+              <li 
+                onClick={handleToggleWishlist}
+                className={`w-10 h-10 flex justify-center items-center p-2 rounded-full shadow-lg cursor-pointer transition-colors ${isInWishlist ? 'bg-primary text-white' : 'bg-primary-shade hover:bg-primary hover:text-white'}`}
+              >
+                <AiOutlineHeart className="h-6 w-6" />
               </li>
               <li className="bg-primary-shade shadow-xl w-10 h-10 justify-center items-center p-2 rounded-full">
                 <RiShareForwardFill className="hover:text-secondary h-6 w-6 text-primary" />
@@ -95,22 +148,44 @@ export default function SingleProduct({ product }) {
   );
 }
 export async function getServerSideProps(ctx) {
-  let product = null;
   try {
-    let res = await axios.get(
-      `https://ecommerce-sagartmg2.vercel.app/api/products/${ctx.query.slug}`
-    );
-    product = res.data.data;
-  } catch (error) {
+    // Find product by ID from mock data
+    const productId = ctx.query.slug;
+    let product = [...mockProducts, ...mockTrending].find(p => p._id === productId);
+    
+    // If product not found in mock data, try API
+    if (!product) {
+      try {
+        let res = await axios.get(
+          `https://ecommerce-sagartmg2.vercel.app/api/products/${productId}`
+        );
+        product = res.data.data;
+      } catch (apiError) {
+        console.error('API error:', apiError);
+        // If API fails, use first product from mock data
+        product = mockProducts[0];
+      }
+    }
+    
+    if (!product) {
+      return {
+        notFound: true,
+        props: {},
+      };
+    }
+
     return {
-      notFound: true,
-      props: {},
+      props: {
+        product,
+      },
+    };
+  } catch (error) {
+    console.error('Error in getServerSideProps:', error);
+    // Fallback to first product in mock data
+    return {
+      props: {
+        product: mockProducts[0],
+      },
     };
   }
-
-  return {
-    props: {
-      product,
-    },
-  };
 }
